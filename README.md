@@ -21,8 +21,8 @@ y descomentar el main de ansin.c
 
 Para compilar:
 
-- gcc ansin.c tablaSimbolos.c
-- o ansin - ansin fuente.txt
+- gcc ansin.c tablaSimbolos.c -o ansin
+- ansin fuente.txt
 
 #TAREA3
 comentar los mains de los archivos anlex.c y ansin.c
@@ -30,5 +30,5 @@ y descomentar el main de trad.c
 
 Para compilar:
 
-- gcc trad.c tablaSimbolos.c
-- o trad - trad fuente.txt
+- gcc trad.c tablaSimbolos.c -o trad
+- trad fuente.txt
