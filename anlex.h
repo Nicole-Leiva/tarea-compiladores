@@ -1,52 +1,36 @@
 /*********** Librerias utilizadas **************/
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <ctype.h>
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h> 
+#include<ctype.h>
 
 /************* Definiciones ********************/
 
-// Codigos
-#define L_CORCHETE 256
-#define R_CORCHETE 257
-#define L_LLAVE 258
-#define R_LLAVE 259
-#define COMA 260
-#define DOS_PUNTOS 261
-#define STRING 262
-#define NUMBER 263
-#define PR_TRUE 264
-#define PR_FALSE 265
-#define PR_NULL 266
-// Fin Codigos
-#define TAMBUFF 5
-#define TAMLEX 50
-#define TAMHASH 101
+#define L_CORCHETE 		256
+#define R_CORCHETE 		257
+#define L_LLAVE	   		258
+#define R_LLAVE		    259
+#define COMA	        260
+#define DOS_PUNTOS      261
+#define LITERAL_CADENA	262
+#define LITERAL_NUM     263
+#define PR_TRUE         264
+#define PR_FALSE        265
+#define PR_NULL         266
+#define TAMBUFF 	    5
+#define TAMLEX 		    50
+
+typedef char * string;
+
+string nombres_comp [] = {"L_CORCHETE","R_CORCHETE", "L_LLAVE", "R_LLAVE", "COMA", "DOS_PUNTOS" , "LITERAL_CADENA", "LITERAL_NUM", "PR_TRUE","PR_FALSE","PR_NULL"};
 
 /************* Estructuras ********************/
-
-typedef struct entrada
-{
-	// definir los campos de 1 entrada de la tabla de simbolos
+typedef struct {
 	int compLex;
-	char lexema[TAMLEX];
-	struct entrada *tipoDato; // null puede representar variable no declarada
-							  // aqui irian mas atributos para funciones y procedimientos...
-
-} entrada;
-
-typedef struct
-{
-	int compLex;
-	entrada *pe;
+	string lexema;
+    string componente;
 } token;
 
 /************* Prototipos ********************/
-void insertar(entrada e);
-entrada *buscar(const char *clave);
-void initTabla();
-void initTablaSimbolos();
 void sigLex();
-// nueva funcion para retornar el componente lexico para el
-// archivo de salida
-char *buscarComponenteLexico(int compLex);
+void palabra_reservada(char []);
